@@ -1,20 +1,6 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.0"
-    }
-  }
-}
-
-provider "aws" {
-  region = "us-east-1"
-}
-
-resource "aws_vpc" "my_vpc" {
-  cidr_block = var.vpc_cidr
-
+resource "aws_vpc" "cloudshift_network" {
+  cidr_block = var.cidr_block
   tags = {
-    Name = "my-vpc"
+    name = var.vpc_name
   }
 }

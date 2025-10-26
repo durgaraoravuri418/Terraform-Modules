@@ -1,4 +1,4 @@
 output "vpc_id" {
-  description = "The ID of the VPC"
-  value       = aws_vpc.my_vpc.id
+  description = "The id of the vpc"
+  value = aws_vpc.cloudshift_network.id
 }
