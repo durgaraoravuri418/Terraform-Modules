@@ -1,5 +1,6 @@
-module "vpc" {
+module "aws_vpc" {
+  for_each   = var.vpc_configs
   source     = "./modules/vpc"
-  cidr_block = var.cidr_block
-  vpc_name   = var.vpc_name
+  name       = each.value.name
+  cidr_block = each.value.cidr_block
 }
