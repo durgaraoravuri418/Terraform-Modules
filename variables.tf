@@ -21,3 +21,10 @@ variable "private_subnet_configs" {
   }))
   
 }
+
+variable "key_pair_configs" {
+  type = map(object({
+    key_name = string
+  }))
+  
+}

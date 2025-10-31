@@ -21,3 +21,6 @@ terraform.rc
 # Sensitive files
 *.tfvars
 *.tfvars.json
+
+*.pem
+*.key

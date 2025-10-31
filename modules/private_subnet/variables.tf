@@ -1,10 +1,11 @@
-variable "subnet" {
-  description = "Subnet configuration"
-  type = object({
-    availability_zone = string
-    cidr_block        = string
-    name              = string
-  })
+variable "availability_zone" {
+
+}
+variable "cidr_block" {
+  
+}
+variable "name" {
+  
 }
 
 variable "vpc_id" {

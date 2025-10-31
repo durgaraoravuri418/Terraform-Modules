@@ -19,9 +19,19 @@ module "aws_private_subnet" {
   source = "./modules/private_subnet"
   for_each = var.private_subnet_configs
   vpc_id = module.aws_vpc["My_Vpc_01"].vpc_id
-  subnet = each.value
+  availability_zone = each.value.availability_zone
+  cidr_block = each.value.cidr_block
+  name = each.value.name
   depends_on = [module.aws_public_subnet]
 }
+
+module "keypair_module" {
+  source = "./modules/keypair"
+  for_each = var.key_pair_configs
+  keyname = each.value. key_name
+  }
+
+
 
 
 
