@@ -10,6 +10,7 @@ variable "public_subnet_configs" {
     name              = string
     cidr_block        = string
     availability_zone = string
+    vpc_key = string 
   }))
 }
 
@@ -18,6 +19,7 @@ variable "private_subnet_configs" {
     name              = string
     cidr_block        = string
     availability_zone = string
+    vpc_key = string 
   }))
 
 }

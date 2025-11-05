@@ -8,7 +8,7 @@ module "aws_vpc" {
 module "aws_public_subnet" {
   source            = "./modules/public_subnet"
   for_each          = var.public_subnet_configs
-  vpc_id            = module.aws_vpc["My_Vpc_01"].vpc_id
+  vpc_id            = module.aws_vpc[each.value.vpc_key].vpc_id
   availability_zone = each.value.availability_zone
   cidr_block        = each.value.cidr_block
   name              = each.value.name
@@ -18,7 +18,7 @@ module "aws_public_subnet" {
 module "aws_private_subnet" {
   source            = "./modules/private_subnet"
   for_each          = var.private_subnet_configs
-  vpc_id            = module.aws_vpc["My_Vpc_01"].vpc_id
+  vpc_id            = module.aws_vpc[each.value.vpc_key].vpc_id
   availability_zone = each.value.availability_zone
   cidr_block        = each.value.cidr_block
   name              = each.value.name
