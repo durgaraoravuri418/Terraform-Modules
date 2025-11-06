@@ -10,7 +10,7 @@ variable "public_subnet_configs" {
     name              = string
     cidr_block        = string
     availability_zone = string
-    vpc_key = string 
+    vpc_key           = string
   }))
 }
 
@@ -19,7 +19,7 @@ variable "private_subnet_configs" {
     name              = string
     cidr_block        = string
     availability_zone = string
-    vpc_key = string 
+    vpc_key           = string
   }))
 
 }
@@ -47,4 +47,16 @@ variable "sg_configs" {
     egress_cidr_blocks  = list(string)
     tags                = map(string)
   }))
+}
+variable "ec2_configs" {
+  type = map(object({
+    name = string
+    ami_id = string
+    instance_type = string
+    subnet_id = string
+    securitygroup_id = string
+    key_name = string
+    user_data = string
+  }))
+  
 }

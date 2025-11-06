@@ -50,5 +50,17 @@ module "security_group" {
   tags                = each.value.tags
 }
 
+module "ec2_instance" {
+  for_each         = var.ec2_configs
+  source           = "./modules/ec2"
+  name = each.value.name
+  ami_id           = each.value.ami_id
+  instance_type    = each.value.instance_type
+  key_name         = module.keypair_module["ec2_user_key"].key_name
+  securitygroup_id = module.security_group["ssh_sg"].security_group_id
+  subnet_id        = module.aws_public_subnet["My_Subnet_Public__01"].subnet_id
+  user_data        = ""
+}
+
 
 
