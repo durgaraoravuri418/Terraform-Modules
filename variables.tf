@@ -60,3 +60,10 @@ variable "ec2_configs" {
   }))
   
 }
+
+variable "igw_configs" {
+  type = map(object({
+    name = string
+  }))
+  
+}

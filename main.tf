@@ -62,5 +62,14 @@ module "ec2_instance" {
   user_data        = ""
 }
 
+module "igw" {
+  for_each = var.igw_configs
+  source = "./modules/igw"
+  vpc_id = module.aws_vpc["My_Vpc_01"].vpc_id
+  igw_name = each.value.name
+
+  
+}
+
 
 
